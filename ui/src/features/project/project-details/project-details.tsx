@@ -8,7 +8,7 @@ import { graphlib, layout } from 'dagre';
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { transport } from '@ui/config/transport';
+import { transportWithAuth } from '@ui/config/transport';
 import { ColorContext } from '@ui/context/colors';
 import { LoadingState } from '@ui/features/common';
 import { Freightline, PromotionType } from '@ui/features/freightline/freightline';
@@ -76,7 +76,7 @@ export const ProjectDetails = () => {
     const cancel = new AbortController();
 
     const watchStages = async () => {
-      const promiseClient = createPromiseClient(KargoService, transport);
+      const promiseClient = createPromiseClient(KargoService, transportWithAuth);
       const stream = promiseClient.watchStages({ project: name }, { signal: cancel.signal });
       let stages = data.stages.slice();
 
