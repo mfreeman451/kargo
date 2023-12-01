@@ -32,7 +32,7 @@ export const OIDCLogin = ({ oidcConfig }: Props) => {
 
   const client = React.useMemo(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    () => ({ client_id: oidcConfig.clientId, token_endpoint_auth_method: 'none' as any }),
+    () => ({ client_id: __OIDC_CLIENT_ID__ || oidcConfig.clientId, token_endpoint_auth_method: 'none' as any }),
     [oidcConfig]
   );
 

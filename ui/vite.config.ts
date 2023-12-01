@@ -49,5 +49,8 @@ export default defineConfig({
       }
     },
     port: 3333
+  },
+  define: {
+    __OIDC_CLIENT_ID__: JSON.stringify(process.env.OIDC_CLIENT_ID)
   }
 });
